@@ -13,9 +13,11 @@ passport.use(new GoogleStrategy({
   User.findOne({googleId: profile.id})
     .then((existingUser) => {
       if (existingUser) {
-        // Already have a user
+        done(null, existingUser);
       } else {
-        new User({googleId: profile.id}).save();
+        new User({googleId: profile.id})
+          .save()
+          .then(savedUser => done(null, savedUser));
       }
-    })
+    });
 }));
