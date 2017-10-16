@@ -8,7 +8,11 @@ class Payments extends Component {
         amount={500}
         token={token => console.log(token)}
         stripeKey={process.env.REACT_APP_STRIPE_KEY}
-      />
+        name="Emaily"
+        description="$5 for 5 email credits"
+      >
+        <button className="btn">Add Credits</button>
+      </StripeCheckout>
     );
   }
 }
