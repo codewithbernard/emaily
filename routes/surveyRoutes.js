@@ -26,6 +26,8 @@ module.exports = app => {
         }
       }
     });
+    const compactEvents = _.compact(events);
+    const uniqueEvents = _.uniqBy(compactEvents, 'email', 'surveyId');
   });
 
   app.post('/api/surveys', requireLogin, async (req, res) => {
