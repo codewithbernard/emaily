@@ -22,9 +22,9 @@ class Header extends Component {
 
     render() {
       return(
-          <nav>
+          <nav style={{marginBottom: 20}}>
             <div className="nav-wrapper">
-              <Link to={this.props.auth ? '/surveys' : '/'} className="left brand-logo">Emaily</Link>
+              <Link to={this.props.auth ? '/surveys' : '/'} className="left brand-logo" style={{marginLeft: 10}}><i className="large material-icons">email</i>Emaily</Link>
               <ul id="nav-mobile" className="right hide-on-med-and-down">
                 {this.renderContent()}
               </ul>
