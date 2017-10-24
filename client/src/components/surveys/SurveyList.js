@@ -11,7 +11,8 @@ class SurveyList extends Component {
     if (this.props.surveys.length) {
       return this.props.surveys.reverse().map(survey => {
         return(
-          <div key={survey.id} className="card red lighten-5">
+          <div key={survey.id} className="card red lighten-5" style={{marginBottom: 30}}>
+            <button className="btn-floating halfway-fab waves-effect waves-light red"><i className="material-icons">delete</i></button>
             <div className="card-content">
               <span className="card-title">{survey.title}</span>
               <p>{survey.body}</p>
