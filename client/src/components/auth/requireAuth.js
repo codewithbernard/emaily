@@ -10,13 +10,13 @@ export default function(ComposedComponent) {
 
     componentWillMount() {
       if (!this.props.authenticated) {
-        this.context.router.history.push('/auth/google');
+        this.context.router.history.push('/');
       }
     }
 
     componentWillUpdate(nextProps) {
       if (!nextProps.authenticated) {
-        this.context.router.history.push('/auth/google');
+        this.context.router.history.push('/');
       }
     }
 
@@ -26,10 +26,7 @@ export default function(ComposedComponent) {
   }
 
   function mapStateToProps(state) {
-    if (state.auth) {
-      return { authenticated: true }
-    }
-      return { authenticated: false }
+    return { authenticated: state.auth }
   }
 
   return connect(mapStateToProps)(Authentication);
