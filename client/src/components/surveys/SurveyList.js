@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchSurveys } from '../../actions';
 
+import DeleteSurveyModal from './DeleteSurveyModal';
+
 class SurveyList extends Component {
   componentDidMount() {
     this.props.fetchSurveys();
@@ -39,6 +41,7 @@ class SurveyList extends Component {
     return(
       <div>
         {this.renderSurveys()}
+        <DeleteSurveyModal />
       </div>
     );
   }

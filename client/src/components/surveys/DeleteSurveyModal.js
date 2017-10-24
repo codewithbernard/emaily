@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class DeleteSurveyModal extends Component {
+export default class DeleteSurveyModal extends Component {
   render() {
     return(
       <div id="deleteSurveyModal" className="modal">
