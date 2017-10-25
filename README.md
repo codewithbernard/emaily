@@ -1,6 +1,6 @@
 # Emaily #
 
-Emaily is application coded along with this tutorial https://www.udemy.com/node-with-react-fullstack-web-development/
+Emaily is application coded along with this tutorial https://www.udemy.com/node-with-react-fullstack-web-development/ 
 Final css markup and little improvements I did myself
 
 ### Stack overview ###
