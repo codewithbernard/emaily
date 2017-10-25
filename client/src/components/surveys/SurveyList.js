@@ -6,7 +6,7 @@ import $ from 'jquery';
 import DeleteSurveyModal from './DeleteSurveyModal';
 
 class SurveyList extends Component {
-  state = { deleteSurveyId: 1 };
+  state = { deleteSurveyId: null };
 
   componentDidMount() {
     this.props.fetchSurveys();
@@ -19,10 +19,10 @@ class SurveyList extends Component {
 
   renderSurveys() {
     if (this.props.surveys.length) {
-      return this.props.surveys.reverse().map(survey => {
+      return this.props.surveys.map(survey => {
         return(
-          <div key={survey.id} className="card red lighten-5" style={{marginBottom: 30}}>
-            <button className="btn-floating halfway-fab waves-effect waves-light red modal-trigger" data-target="deleteSurveyModal"><i className="material-icons">delete</i></button>
+          <div key={survey._id} className="card red lighten-5" style={{marginBottom: 30}}>
+            <button onClick={() => this.setState({deleteSurveyId: survey._id})} className="btn-floating halfway-fab waves-effect waves-light red modal-trigger" data-target="deleteSurveyModal"><i className="material-icons">delete</i></button>
             <div className="card-content">
               <span className="card-title">{survey.title}</span>
               <p>{survey.body}</p>
