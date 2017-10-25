@@ -15,6 +15,7 @@ class SurveyList extends Component {
 
   deleteSurvey() {
     this.props.deleteSurvey(this.state.deleteSurveyId);
+    this.props.fetchSurveys();
   }
 
   renderSurveys() {
