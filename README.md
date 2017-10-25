@@ -14,9 +14,7 @@ APIs: Google oAuth 2.0, Sendgrid, Stripe
 
 ### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+* Clone this repo
+* run npm install inside root directory
+* run npm install inside client directory
+* run npm run dev
