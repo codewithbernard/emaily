@@ -7,7 +7,7 @@ import Payments from './Payments';
 
 class Header extends Component {
     componentDidMount() {
-      console.log($('.button-collapse').sideNav());
+      $('.button-collapse').sideNav();
     }
 
     renderContent() {
@@ -30,12 +30,12 @@ class Header extends Component {
         case null:
           return;
         case false:
-          return <li><a href="/auth/google">Login With Google <i class="material-icons left">forward</i></a></li>;
+          return <li><a href="/auth/google">Login With Google <i className="material-icons left">forward</i></a></li>;
         default:
           return [
             <li key="1"><Payments sideNav /></li>,
-            <li key="3"><a>Credits: {this.props.auth.credits} <i class="material-icons left">attach_money</i></a></li>,
-            <li key="2"><a href="/api/logout">Logout <i class="material-icons left">exit_to_app</i></a></li>
+            <li key="3"><a>Credits: {this.props.auth.credits} <i className="material-icons left">attach_money</i></a></li>,
+            <li key="2"><a href="/api/logout">Logout <i className="material-icons left">exit_to_app</i></a></li>
           ];
       }
     }

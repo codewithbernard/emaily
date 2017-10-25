@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchSurveys } from '../../actions';
+import $ from 'jquery';
 
 import DeleteSurveyModal from './DeleteSurveyModal';
 
 class SurveyList extends Component {
+  state = { deleteSurveyId: 1 };
+
   componentDidMount() {
     this.props.fetchSurveys();
+    $('#deleteSurveyModal').modal();
+  }
+
+  deleteSurvey() {
+    console.log(this.state.deleteSurveyId);
   }
 
   renderSurveys() {
@@ -14,7 +22,7 @@ class SurveyList extends Component {
       return this.props.surveys.reverse().map(survey => {
         return(
           <div key={survey.id} className="card red lighten-5" style={{marginBottom: 30}}>
-            <a className="btn-floating halfway-fab waves-effect waves-light red modal-trigger" href="#deleteSurveyModal"><i className="material-icons">delete</i></a>
+            <button className="btn-floating halfway-fab waves-effect waves-light red modal-trigger" data-target="deleteSurveyModal"><i className="material-icons">delete</i></button>
             <div className="card-content">
               <span className="card-title">{survey.title}</span>
               <p>{survey.body}</p>
@@ -41,7 +49,7 @@ class SurveyList extends Component {
     return(
       <div>
         {this.renderSurveys()}
-        <DeleteSurveyModal />
+        <DeleteSurveyModal onConfirm={this.deleteSurvey.bind(this)}/>
       </div>
     );
   }

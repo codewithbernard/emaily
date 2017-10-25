@@ -4,10 +4,6 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 class Payments extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return(
       <StripeCheckout
@@ -18,7 +14,7 @@ class Payments extends Component {
         name="Emaily"
         description="$5 for 5 email credits"
       >
-        {this.props.sideNav ? ['Add Credits', <i className="material-icons left">credit_card</i>] : <button className="btn white red-text text-lighten-2">Add Credits</button> }
+        {this.props.sideNav ? ['Add Credits', <i key="AddCredits" className="material-icons left">credit_card</i>] : <button className="btn white red-text text-lighten-2">Add Credits</button> }
       </StripeCheckout>
     );
   }

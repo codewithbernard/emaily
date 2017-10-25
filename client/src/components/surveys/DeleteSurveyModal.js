@@ -9,7 +9,8 @@ export default class DeleteSurveyModal extends Component {
           <p>This survey will be permanently deleted. Are you sure?</p>
         </div>
         <div className="modal-footer">
-          <a href="#!" className="modal-action modal-close waves-effect waves-green btn-flat">Delete</a>
+          <button onClick={this.props.onConfirm} className="modal-action modal-close waves-effect waves-green btn-flat">Delete</button>
+          <a href="#!" className="modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
         </div>
       </div>
     );
