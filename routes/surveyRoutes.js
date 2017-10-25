@@ -69,4 +69,9 @@ module.exports = app => {
       res.status(422).send(err);
     }
   });
+
+  app.delete('/api/surveys/:surveyId', requireLogin, (req, res) => {
+    Survey.findOneAndRemove({_id: req.params.surveyId}, (err) => console.log(err));
+    res.send({ deletedSurveyId: req.params.surveyId });
+  });
 }
