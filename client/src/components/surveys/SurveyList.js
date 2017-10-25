@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchSurveys } from '../../actions';
+import * as actions from '../../actions';
 import $ from 'jquery';
 
 import DeleteSurveyModal from './DeleteSurveyModal';
@@ -14,7 +14,7 @@ class SurveyList extends Component {
   }
 
   deleteSurvey() {
-    console.log(this.state.deleteSurveyId);
+    this.props.deleteSurvey(this.state.deleteSurveyId);
   }
 
   renderSurveys() {
@@ -49,7 +49,7 @@ class SurveyList extends Component {
     return(
       <div>
         {this.renderSurveys()}
-        <DeleteSurveyModal onConfirm={this.deleteSurvey.bind(this)}/>
+        <DeleteSurveyModal onConfirm={this.deleteSurvey.bind(this)} />
       </div>
     );
   }
@@ -61,4 +61,4 @@ function mapStateToProps({ surveys }) {
   }
 }
 
-export default connect(mapStateToProps, { fetchSurveys })(SurveyList);
+export default connect(mapStateToProps, actions)(SurveyList);
